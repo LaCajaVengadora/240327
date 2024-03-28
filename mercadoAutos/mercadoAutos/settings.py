@@ -76,9 +76,13 @@ WSGI_APPLICATION = 'mercadoAutos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	'NAME': 'mercadoautosdb',
+	'USER':'postgres',
+	'PASSWORD': 'RudeBuster',
+	'HOST':'192.168.0.213',
+	'DATABASE_PORT':'5432',
+}
 }
 
 
