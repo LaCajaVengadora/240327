@@ -9,8 +9,10 @@ class Category(models.Model):
     class Meta(): verbose_name_plural = 'Categories'
 
 class Item(models.Model):
-    ID = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50); desc = models.TextField()
+    ID = models.CharField(max_length=10, primary_key=True, verbose_name='Patente')
+    marca = models.CharField(max_length=25)
+    modelo = models.CharField(max_length=25)
+    desc = models.TextField(verbose_name='Description')
     price = models.FloatField()
     category = models.ManyToManyField(Category)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -26,8 +26,8 @@ class CategoriAdmin(admin.ModelAdmin):
 	list_display = ['name', 'color']; search_fields = list_display; list_filter=[HasItems]
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'display_category', 'display_author_username']
-    search_fields = ['number', 'name', 'price', 'category__name']
+    list_display = ['ID', 'price', 'display_category', 'display_author_username']
+    search_fields = ['ID', 'marca', 'modelo','price', 'category__name']
     list_filter = ['category', PriceOrder]
     def display_category(self, obj): return " - ".join([c.name for c in obj.category.all()])
     display_category.short_description = 'Categories'
@@ -36,9 +36,9 @@ class ItemAdmin(admin.ModelAdmin):
 
 class ImageAdmin(admin.ModelAdmin):
     list_display = ['ID', 'display_item', 'img']
-    search_fields = ['ID', 'item_name', 'img']
-    def display_item(self, obj): return obj.item.name
-    display_item.short_description = 'Item name'
+    search_fields = ['ID', 'item_ID', 'img']
+    def display_item(self, obj): return obj.item.ID
+    display_item.short_description = 'Item ID'
 
 admin.site.register(Category, CategoriAdmin)
 admin.site.register(Item, ItemAdmin)
