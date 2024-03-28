@@ -80,7 +80,7 @@ DATABASES = {
 	'NAME': 'mercadoautosdb',
 	'USER':'postgres',
 	'PASSWORD': 'RudeBuster',
-	'HOST':'192.168.0.213',
+	'HOST':'127.0.0.1',
 	'DATABASE_PORT':'5432',
 }
 }
@@ -126,3 +126,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 28-03 Media files
+MEDIA_URL = 'media/'
+MEDIA_ROOT =  BASE_DIR / 'media'
