@@ -55,7 +55,7 @@ ROOT_URLCONF = 'mercadoAutos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['shop_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
