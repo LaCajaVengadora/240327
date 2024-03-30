@@ -4,8 +4,12 @@
 
 	<header class="text-center" style="margin-bottom: 10%;"><h1 style="font-size: 300%;">M Autos</h1></header>
 
-    <section>
-        {{cats}}
+    <section class="mx-2 mb-4 fs-5">
+        <h2 class="mb-3">Categorías: </h2>
+        <a href="{%url 'Shop'%}" class="bg1 rounded text-light cat-link px-2 py-1 me-3">Ver todo</a>
+        {%for c in cats%}
+            <a style="background-color: {{c.color}};" href="{{c.name}}" class="rounded text-light cat-link px-2 py-1 me-3">{{c.name}}</a>
+        {%endfor%}
     </section>
 
     <section class="mx-4">
