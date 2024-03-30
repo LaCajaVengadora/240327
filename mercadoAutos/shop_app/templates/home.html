@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{%block title%}M Autos{%endblock%}
+{%block content%}
+
+	<header class="text-center" style="margin-bottom: 10%;"><h1 style="font-size: 300%;">M Autos</h1></header>
+
+    <section>
+        {{cats}}
+    </section>
+
+    <section class="mx-4">
+        {%for item in items%}
+        <div class="card shop-card {%cycle 'clear' 'ml-3_3' 'ml-3_3' 'ml-3_3' %}">
+
+            <img src="{{item.images.first.img.url}}" class="card-img-top" alt="Image not available" style="object-fit: cover;" height="200px">
+
+            <div class="card-header bg1">
+                {%for c in item.category.all%}
+                <a style="background-color: {{c.color}};" href="{{c.name}}" 
+                    class="rounded text-light cat-link px-2 py-1 me-3">{{c.name}}</a>
+                {%endfor%}
+            </div>
+
+            <div class="card-body text-center">
+                <h5 class="card-title">{{item.marca}} {{item.modelo}}</h5>
+                <p class="card-text mb-2">${{item.price}}</p>
+
+                <a href="#" class="btn rounded hover-btn3 fs-4 fw-semibold">ASK</a>
+            </div>
+
+            <div class="card-footer text-body-secondary bg2">Offered by: {{item.author}}</div>
+
+        </div>
+        {%endfor%}
+    </section>
+
+    <section class="clear text-center">
+        {% if items.has_previous %}<a class="fs-1" href="?page={{ items.previous_page_number }}"><i class="fa-solid fa-backward c2"></i></a>{% endif %}
+        <span class="mx-4"></span>
+        {% if items.has_next %}<a class="fs-1" href="?page={{ items.next_page_number }}"><i class="fa-solid fa-forward c2"></i></a>{% endif %}
+    </section>
+    
+    
+
+{%endblock%}

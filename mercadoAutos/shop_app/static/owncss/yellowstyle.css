@@ -1,9 +1,9 @@
 
-.bg1{background-color: #1B1B1B;}
-.bg2{background-color: #FCCD8E;}
-.bg3{background-color: #F5FF92;}
-.bg4{background-color: #FFFFD8;}
-.bg5{background-color: #FFFFFF;}
+.bg1{background-color: #1B1B1B;}.c1{color: #1B1B1B;}
+.bg2{background-color: #FCCD8E;}.c2{color: #FCCD8E;}
+.bg3{background-color: #F5FF92;}.c3{color: #F5FF92;}
+.bg4{background-color: #FFFFD8;}.c4{color: #FFFFD8;}
+.bg5{background-color: #f8f9fa;}.c5{color: #f8f9fa;}
 
 .hover-btn1{background-color: #1B1B1B;} .hover-btn1:hover{background-color: #474747;}
 .hover-btn2{background-color: #FCCD8E;} .hover-btn2:hover{background-color: #c09359;}

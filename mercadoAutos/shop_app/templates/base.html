@@ -6,16 +6,16 @@
     <title>{%block title%}{%endblock%}</title>
 
     {%load static%}
-    <link rel="stylesheet" href="{% static 'bootstrap-5.3.3-dist/css/bootstrap.min.css'%}">
     <script src="{% static 'bootstrap-5.3.3-dist/js/bootstrap.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/9f98dd71a6.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.3-dist/css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'owncss/yellowstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'owncss/common.css' %}">
 </head>
-<body>
+<body class="bg-5">
     {%include "topbar.html"%}
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top: 15%; margin-bottom: 7.5%;">
         {%block content%}{%endblock%}
     </div>
     
