@@ -7,10 +7,12 @@
 		<div class="col-5 bg1 d-flex px-0 justify-content-center align-items-center">
 			<form class="my-4 text-light px-4" action="#" method="POST">
 				
-				<h2 class="text-center fs-1 mb-4">Sign up</h2>
-				<p class="text-center">Have an account? <a href="{%url 'Login'%}" class="hover-c2 fw-semibold">Login!</a></p>
-				
+				<h2 class="text-center fs-1 mb-4">Verify email</h2>
+				<p>A six letter code was sent to your email</p>
+				{%if 'wrong' in request.GET%} <p>Wrong code</p> {%endif%}
 				<span>{{form.as_p}}</span>{%csrf_token%}
+
+				<a href="{%url 'Verify'%}" class="rounded hover-btn2 btn fw-bold px-2 py-1">RESEND CODE</a>
 
 				<div class="d-flex justify-content-center mt-4">
 					<input type="submit" value="SEND" class="btn rounded hover-btn2 fw-bold">
