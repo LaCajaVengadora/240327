@@ -7,9 +7,9 @@
             <img src="{% static 'img/sheepy.png' %}" alt="Logo" width="30" height="30"/>
         </a>
 
-        <form role="search" class="d-flex col-6">
-            <button class="btn hover-btn3 fw-bold" type="submit">TODO</button>
-            <input class="form-control ms-3" type="search" placeholder="todo">
+        <form role="search" method="GET" action="" class="d-flex col-6">
+            <button class="btn hover-btn3 fw-bold" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input class="form-control ms-3" type="search" name="q" placeholder="Buscar...">
         </form>
 
         <div class="d-flex">

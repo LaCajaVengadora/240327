@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
+from django.conf.global_settings import EMAIL_HOST_USER
 
 
 class UserCreationWithMailForm(UserCreationForm):
@@ -36,7 +37,7 @@ class VerificationCodeForm(forms.Form):
         send_mail(
             'Verification Code',
             f'Your verification code is: {CODE}',
-            'from@example.com',
+            EMAIL_HOST_USER,
             [self.request.session.get('user_data')['email']],
             fail_silently=False,
         )
