@@ -55,7 +55,7 @@ ROOT_URLCONF = 'mercadoAutos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['mercadoAutos/parent_templates', 'shop_app/templates', 'auth_app/templates'],
+        'DIRS': ['mercadoAutos/parent_templates', 'shop_app/templates', 'auth_app/templates', 'items_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,3 +142,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER='schrodingernoreply@gmail.com'
 EMAIL_HOST_PASSWORD='svya dujl eega xmjm'
+

@@ -2,7 +2,7 @@
 {%block title%}M Autos{%endblock%}
 {%block content%}
 
-	<header class="text-center" style="margin-bottom: 10%;"><h1 style="font-size: 300%;">M Autos</h1></header>
+	<header class="text-center" style="margin-bottom: 10%; margin-top: 17.5%;"><h1 style="font-size: 300%;">M Autos</h1></header>
 
     <section class="mx-2 mb-4 fs-5">
         <h2 class="mb-3">Categorías: </h2>
@@ -29,12 +29,14 @@
                 <h5 class="card-title">{{item.marca}} {{item.modelo}}</h5>
                 <p class="card-text mb-2">${{item.price}}</p>
 
-                <a href="#" class="btn rounded hover-btn3 fs-4 fw-semibold">ASK</a>
+                <a href="{% url 'Item' item.ID %}" class="btn rounded hover-btn3 fs-4 fw-semibold">ASK</a>
             </div>
 
             <div class="card-footer text-body-secondary bg2">Offered by: {{item.author}}</div>
 
         </div>
+        {%empty%}
+        <h1 class="text-center" style="margin-top: 10%;">No hay items disponibles</h1>
         {%endfor%}
     </section>
 

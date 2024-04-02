@@ -25,3 +25,10 @@ class ItemImage(models.Model):
     ID = models.AutoField(primary_key=True)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     img = models.ImageField(default='items_app/ItemImage/default.png', upload_to='items_app/ItemImage')
+
+class FavoriteItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    class Meta: unique_together = ['user', 'item']
+    def __str__(self): return f'User {self.user.username} : Item {self.item.ID}'
+User.add_to_class('fav_items', models.ManyToManyField(Item, through=FavoriteItem))

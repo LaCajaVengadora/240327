@@ -72,7 +72,7 @@ class verification_code(View):
                 login(request, user)
                 return redirect('Shop')
             else:
-                return redirect('/mail/?wrong')
+                return redirect('/auth/mail/?wrong')
 
 
 class forgot_password(View):

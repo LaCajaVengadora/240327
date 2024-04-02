@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Item, ItemImage, Category
+from .models import Item, ItemImage, Category, FavoriteItem
 from django.utils.translation import gettext_lazy as _
 # Register your models here.
 class HasItems(admin.SimpleListFilter):
@@ -40,6 +40,14 @@ class ImageAdmin(admin.ModelAdmin):
     def display_item(self, obj): return obj.item.ID
     display_item.short_description = 'Item ID'
 
+class FavoriteAdmin(admin.ModelAdmin):
+    list_display = ['display_item', 'display_user']
+    def display_item(self, obj): return obj.item.ID
+    display_item.short_description = 'Item ID'
+    def display_user(self, obj): return obj.user.username
+    display_user.short_description = 'User'
+
 admin.site.register(Category, CategoriAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(ItemImage, ImageAdmin)
+admin.site.register(FavoriteItem, FavoriteAdmin)

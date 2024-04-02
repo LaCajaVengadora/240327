@@ -14,3 +14,4 @@ body{background-color: #f8f9fa;}
 .cat-link{text-decoration: none;} .cat-link:hover{text-decoration: underline; cursor: pointer;}
 
 .shop-card{float: left; width: 22.5%; margin-bottom: 2.5%;}
+.item-carousel-img{margin: auto; max-height: 400px; width: auto;}

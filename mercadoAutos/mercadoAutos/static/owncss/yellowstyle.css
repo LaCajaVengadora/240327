@@ -10,3 +10,12 @@
 .hover-btn3{background-color: #F5FF92;} .hover-btn3:hover{background-color: #b1b959;}
 
 .hover-c2{color: #FCCD8E;} .hover-c2:hover{color: #c09359;}
+
+.item-bd{
+    border: 10px solid #FCCD8E;
+}
+
+#main-bg{
+    background: #f8f9fa;
+    background: linear-gradient(0deg, #f8f9fa 0%, #FCCD8E 100%);
+}

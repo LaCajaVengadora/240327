@@ -22,7 +22,7 @@ def get_items(request, cat = None):
     paginator = Paginator(raw_items.order_by('-price'), 12)# con Paginator, teniendo los items, divide cada 12 items por pag
     pag_num = request.GET.get('page', 1) # Obtiene num de pag del request, por defecto da 1
     items = paginator.get_page(pag_num) # Devuelve la pag con sus items
-
+    
     cats = Category.objects.all()
 
     return render(request, 'home.html', {'items':items,'cats':cats})
