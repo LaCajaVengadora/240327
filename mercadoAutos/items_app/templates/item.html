@@ -2,6 +2,35 @@
 {%block title%}Item{%endblock%}
 {%block content%}
 
+    <div class="modal fade" id="consultaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog"><div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Consulta de Item: {{ item.marca }} {{ item.modelo }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Se enviará un email a <span class="fw-semibold">{{item.author.username}}</span>. 
+                    <br>Puedes introducir información para que te contacte!</p>
+
+                <form action="{% url 'Ask' %}" method="POST">{% csrf_token %}
+
+                    <input type="hidden" name="offererEmail" value="{{item.author.email}}">
+                    <div class="mb-3">
+                        <label for="consulta-textarea" class="form-label">Consulta:</label>
+                        <textarea class="form-control" id="consulta-textarea" name="consulta" rows="5"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="reset" value="Borrar" class="btn rounded hover-btn3 fw-bold ms-2">
+                        <input type="submit" value="Enviar" class="btn rounded hover-btn2 fw-bold">
+                    </div>
+                </form>
+            </div>
+        </div></div>
+    </div>
+
+
     <section class="bg5 mx-4 rounded item-bd">
 
         <div class="row">
@@ -13,7 +42,7 @@
                 <h5>Ofrecida por: {{item.author.username}}</h5>
                 
                 <h3 class="mt-5 mb-4">Precio: ${{item.price}}</h3>
-                <a href="{% url 'Item' item.ID %}" class="btn rounded hover-btn3 fs-4 fw-semibold">Consultar</a>
+                <a href="#" class="btn rounded hover-btn3 fs-4 fw-semibold" data-bs-toggle="modal" data-bs-target="#consultaModal">Consultar</a>
                 <a href="{% url 'Fav' item.ID %}" 
                     class="btn rounded fs-4 fw-semibold {%if item in request.user.fav_items.all%} hover-btn3 c2 {%else%} hover-btn1 c4 {%endif%}"><i class="fa-solid fa-star"></i></a>
             </div>
