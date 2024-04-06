@@ -1,0 +1,10 @@
+{% extends "profileBase.html" %}
+{% block profile_content %}
+
+
+    <h2 class="card-title mb-3">{{user.username}}</h2>
+    <div class="my-5 py-5">A</div>
+    <p class="card-text">Usuario creado el {{user.date_joined|date:'d M Y'}}</p>
+
+
+{%endblock%}

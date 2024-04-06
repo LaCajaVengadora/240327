@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+{%block title%}Your profile{%endblock%}
+{%block content%}
+
+    <section class="card bg1 c5 mx-4">
+        <div class="card-header">
+            <a href="{% url 'Profile' %}" class="hover-btn2 btn fw-bold {%if request.path == '/profile/gral/'%} c5 {%endif%}">Gral.</a>
+            <a href="{% url 'MyItems' %}" class="hover-btn2 btn fw-bold mx-3 {%if request.path == '/profile/my-items/'%} c5 {%endif%}">My items</a>
+            <a href="{% url 'MyFav' %}" class="hover-btn2 btn fw-bold {%if request.path == '/profile/fav-items/'%} c5 {%endif%}">Fav. items</a>
+            <a href="{% url 'Config' %}" class="hover-btn2 btn fw-bold ms-3 {%if request.path == '/profile/config/'%} c5 {%endif%}">Config. & custom.</a>
+        </div>
+        <div class="card-body">{% block profile_content %}{% endblock %}
+        </div>
+    </section>
+
+{%endblock%}

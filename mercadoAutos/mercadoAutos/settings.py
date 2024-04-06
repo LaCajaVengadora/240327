@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'auth_app', 'email_app', 'profile_app', 'shop_app', 'items_app', 'mercadoAutos'
+    'auth_app', 'profile_app', 'shop_app', 'items_app', 'mercadoAutos'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'mercadoAutos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['mercadoAutos/parent_templates', 'shop_app/templates', 'auth_app/templates', 'items_app/templates'],
+        'DIRS': ['mercadoAutos/parent_templates', 'shop_app/templates', 'auth_app/templates', 'items_app/templates', 'profile_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
