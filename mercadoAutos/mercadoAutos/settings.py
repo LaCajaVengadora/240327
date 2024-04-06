@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mercadoAutos.themes.theme'
             ],
         },
     },
@@ -122,7 +123,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    'auth_app/static',
     'mercadoAutos/static'
 ]
 

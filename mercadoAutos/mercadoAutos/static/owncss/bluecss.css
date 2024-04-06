@@ -1,0 +1,21 @@
+
+.bg1{background-color: #1C1C1C;}.c1{color: #1C1C1C;}
+.bg2{background-color: #9B84E3;}.c2{color: #9B84E3;}
+.bg3{background-color: #BDC2FF;}.c3{color: #BDC2FF;}
+.bg4{background-color: #E4E4F3;}.c4{color: #E4E4F3;}
+.bg5{background-color: #f8f9fa;}.c5{color: #f8f9fa;}
+
+.hover-btn1{background-color: #1C1C1C;} .hover-btn1:hover{background-color: #474747;}
+.hover-btn2{background-color: #9B84E3;} .hover-btn2:hover{background-color: #6c58a7;}
+.hover-btn3{background-color: #BDC2FF;} .hover-btn3:hover{background-color: #646894;}
+
+.hover-c2{color: #9B84E3;} .hover-c2:hover{color: #6c58a7;}
+
+.item-bd{
+    border: 10px solid #9B84E3;
+}
+
+#main-bg{
+    background: #f8f9fa;
+    background: linear-gradient(0deg, #f8f9fa 0%, #9B84E3 100%);
+}
