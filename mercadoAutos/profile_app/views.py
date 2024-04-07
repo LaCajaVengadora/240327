@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from items_app.models import Item
 from mercadoAutos.themes import set_coral, set_blue, set_yellow
+from django.views.generic import View
 
 # Create your views here.
 @login_required(login_url='/auth/login/')

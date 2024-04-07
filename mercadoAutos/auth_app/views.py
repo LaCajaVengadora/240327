@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 
-from .forms import UserCreationWithMailForm, AuthenticationRemindForm, PasswordChangeForm, VerificationCodeForm
+from .forms import UserCreationWithMailForm, AuthenticationRemindForm, PasswordChangeForm, VerificationCodeForm, UsernameChangeForm, EmailChangeForm
 from django.contrib import messages
 
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 
 
@@ -45,6 +46,7 @@ class signup_view(View):
                 'user':f.cleaned_data['username'],
                 'email':f.cleaned_data['email'],
                 'pass':f.cleaned_data['password1'],
+                'form':'SIGNUP'
             }
             return redirect('Verify')
         
@@ -67,9 +69,18 @@ class verification_code(View):
             user_data = request.session.get('user_data')
 
             if entered_code == request.session.get('CODE'):
-                user = User.objects.create_user(username=user_data['user'], email=user_data['email'], password=user_data['pass'])
-                user.save()
-                login(request, user)
+                if user_data['form']=='SIGNUP': 
+                    user = User.objects.create_user(username=user_data['user'], email=user_data['email'], password=user_data['pass'])
+                    user.save()
+                    login(request, user)
+
+                elif user_data['form']=='CHANGE':
+                    user = request.user
+                    user.email=user_data['email']; user.save()
+                    update_session_auth_hash(request, user)
+                    return redirect('Config')
+                
+                del request.session['CODE']; del request.session['user_data']
                 return redirect('Shop')
             else:
                 return redirect('/auth/mail/?wrong')
@@ -89,3 +100,28 @@ class forgot_password(View):
             for msg in f.error_messages:
                 messages.error(request, f.error_messages[msg])
             return render(request, 'forgot_p.html', {'form':f})
+        
+
+class change_username(View):
+    def get(self, request): return render(request, 'change_u.html', {'form':UsernameChangeForm()})
+    def post(self, request):
+        f = UsernameChangeForm(request.POST)
+        if f.is_valid():
+            user = f.save(request)
+            update_session_auth_hash(request, user)
+            return redirect('Config')
+        for msg in f.error_messages:
+            messages.error(request, f.error_messages[msg])
+        return render(request, 'change_u.html', {'form':f})
+        
+
+class change_email(View):
+    def get(self, request): return render(request, 'change_e.html', {'form':EmailChangeForm()})
+    def post(self, request):
+        f = EmailChangeForm(request.POST)
+        if f.is_valid():
+            request.session['user_data'] = {'email':f.cleaned_data['newEmail'], 'form':'CHANGE'}
+            return redirect('Verify')
+        for msg in f.error_messages:
+            messages.error(request, f.error_messages[msg])
+        return render(request, 'change_e.html', {'form':f})

@@ -92,3 +92,18 @@ class PasswordChangeForm(UserCreationForm):
         user.set_password(self.cleaned_data.get("password1"))
         if commit: user.save()
         return user
+
+
+
+class UsernameChangeForm(forms.Form):
+    newUsername = forms.CharField(label=False, required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nuevo username'}))
+    class Meta: model = User; fields = ('newUsername')
+    def save(self, request):
+        user = request.user; user.username = self.cleaned_data.get("newUsername")
+        user.save(); return user
+
+
+
+class EmailChangeForm(forms.Form):
+    newEmail = forms.EmailField(label=False, widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Nuevo email'}))
+    class Meta: model = User; fields = ('newEmail')

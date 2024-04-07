@@ -9,7 +9,7 @@
 				
 				<h2 class="text-center fs-1 mb-4">Verify email</h2>
 				<p>A six letter code was sent to your email</p>
-				{%if 'wrong' in request.GET%} <p>Wrong code</p> {%endif%}
+				{%if 'wrong' in request.GET%} <p class="fw-semibold">Wrong code, a new code was sent</p> {%endif%}
 				<span>{{form.as_p}}</span>{%csrf_token%}
 
 				<a href="{%url 'Verify'%}" class="rounded hover-btn2 btn fw-bold px-2 py-1">RESEND CODE</a>
