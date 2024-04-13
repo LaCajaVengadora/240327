@@ -20,8 +20,8 @@
 
             <div class="card-header bg1">
                 {%for c in item.category.all%}
-                <a style="background-color: {{c.color}};" href="/{{c.name}}" 
-                    class="rounded text-light cat-link px-2 py-1 me-3">{{c.name}}</a>
+                <a style="background-color: {{c.color}}; display: inline-block;" href="/{{c.name}}" 
+                    class="rounded text-light cat-link px-2 py-1 me-3 ">{{c.name}}</a>
                 {%endfor%}
             </div>
 

@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{%block title%}New Item{%endblock%}
+{%block content%}
+
+    <section class="bg5 rounded item-bd ml-12_5 mr-12_5">
+        <form action="" method="post" class="p-4">{% csrf_token %}
+
+            <div class="row">
+                <div class="col-6">{{ form.ID }}{{ form.ID.errors }}</div>
+                <div class="col-6">{{ form.price }}{{ form.price.error }}</div>
+            </div>
+            <div class="row py-3">
+                <div class="col-6">{{ form.marca }}{{ form.marca.error }}</div>
+                <div class="col-6">{{ form.modelo }}{{ form.modelo.error }}</div>
+            </div>
+            <div class="row"><div class="col">{{ form.desc }}{{ form.desc.error }}</div></div>
+            <div class="row py-3">
+                <div class="col-6">{{ form.category.label }}{{ form.category }}{{ form.category.error }}</div>
+                <div class="col-6">{{ form.images.label }}{{ form.images }}{{ form.images.error }}</div>
+            </div>
+
+            <input type="submit" value="Crear Item" class="btn rounded hover-btn2 fw-bold me-3 ">
+            <input type="reset" value="Clear" class="btn rounded hover-btn3 fw-bold">
+        </form>
+    </section>
+
+{%endblock%}
