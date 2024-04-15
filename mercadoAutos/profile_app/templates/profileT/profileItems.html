@@ -19,9 +19,9 @@
                         <p class="card-text">{{ i.ID }}<br>${{ i.price }}</p>
                     </div>
                     <div class="me-3">
-                        <a class="btn rounded hover-btn1 fw-bold fs-5 me-2" href="#"><i class="fa-solid fa-pen-to-square c5"></i></a>
+                        <a class="btn rounded hover-btn1 fw-bold fs-5 me-2" href="{% url 'EditItem' i.ID %}"><i class="fa-solid fa-pen-to-square c5"></i></a></form>
                         <form action="{% url 'Del' i.ID %}" method="POST" style="display: inline-block;">{% csrf_token %}
-                            <button type="submit" class="btn rounded hover-btn1 fw-bold fs-5"><i class="fa-solid fa-trash c5"></i></input></form>
+                            <button type="submit" class="btn rounded hover-btn1 fw-bold fs-5  "><i class="fa-solid fa-trash c5"></i></button></form>
                     </div>
                 </div>
             </div>
